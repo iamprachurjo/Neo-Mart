@@ -41,16 +41,16 @@ import { updateProduct } from "@/lib/actions/products";
 import toast from "react-hot-toast";
 
 const categories = [
-  "Electronics",
-  "Fashion",
-  "Furniture",
-  "Gaming",
-  "Home Appliances",
-  "Musical Instruments",
-  "Sports",
+  "Books",
+  "Accessories",
+  "Vehicles",
+  "Beauty & Care",
+  "Outdoor & Garden",
+  "Office Supplies",
+  "Collectibles",
 ];
 
-const conditions = ["Like New", "Good", "Fair"];
+const conditions = ["Excellent", "Very Good", "Used"];
 
 const statusStyles = {
   available: "bg-[#3E5F47] text-white",

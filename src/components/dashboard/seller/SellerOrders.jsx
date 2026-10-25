@@ -2,12 +2,7 @@
 
 import { useState } from "react";
 
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 import {
   Table,
@@ -35,7 +30,12 @@ import MobileOrderCard from "./MobileOrderCard";
 export default function SellerOrders({ orders, res }) {
   const [selectedOrder, setSelectedOrder] = useState(null);
   const [open, setOpen] = useState(false);
-  const { deliveredOrders, pendingOrders, processingOrders, totalOrders, totalProducts, totalRevenue, totalSales } = res;
+  const {
+    deliveredOrders,
+    pendingOrders,
+    processingOrders,
+    totalOrders,
+  } = res;
   const handleView = (order) => {
     setSelectedOrder(order);
     setOpen(true);
@@ -43,21 +43,17 @@ export default function SellerOrders({ orders, res }) {
 
   const handleStatusUpdate = async (id, newStatus) => {
     console.log(id, newStatus);
-    const res = await updateOrderStatus(id, newStatus)
-    if(res.modifiedCount > 0){
-      toast(`order status update to ${newStatus}`)
+    const res = await updateOrderStatus(id, newStatus);
+    if (res.modifiedCount > 0) {
+      toast(`order status update to ${newStatus}`);
     }
-    
   };
 
   return (
     <div className="space-y-8">
-
       {/* Header */}
       <div>
-        <h1 className="text-3xl font-bold">
-          Manage Orders
-        </h1>
+        <h1 className="text-3xl font-bold">Manage Orders</h1>
 
         <p className="text-muted-foreground mt-2">
           Handle incoming customer orders.
@@ -66,16 +62,13 @@ export default function SellerOrders({ orders, res }) {
 
       {/* Stats */}
       <div className="grid gap-6 md:grid-cols-4">
-
         <Card>
           <CardHeader>
             <CardTitle>Total Orders</CardTitle>
           </CardHeader>
 
           <CardContent>
-            <h2 className="text-3xl font-bold">
-              {totalOrders}
-            </h2>
+            <h2 className="text-3xl font-bold">{totalOrders}</h2>
           </CardContent>
         </Card>
 
@@ -114,123 +107,106 @@ export default function SellerOrders({ orders, res }) {
             </h2>
           </CardContent>
         </Card>
-
       </div>
-
-
 
       {/* Table */}
-      {orders.length === 0 ?(
-        <EmptyOrders/>
+      {orders.length === 0 ? (
+        <EmptyOrders />
       ) : (
         <>
-        <Card className="hidden md:block">
-        <CardHeader>
-          <CardTitle>Incoming Orders</CardTitle>
-        </CardHeader>
+          <Card className="hidden md:block">
+            <CardHeader>
+              <CardTitle>Incoming Orders</CardTitle>
+            </CardHeader>
 
-        <CardContent>
+            <CardContent>
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Product</TableHead>
+                    <TableHead>Buyer</TableHead>
+                    <TableHead>Price</TableHead>
+                    <TableHead>Status</TableHead>
+                    <TableHead>Actions</TableHead>
+                  </TableRow>
+                </TableHeader>
 
-          <Table>
+                <TableBody>
+                  {orders.map((order) => (
+                    <TableRow key={order._id}>
+                      <TableCell>{order.productName}</TableCell>
 
-            <TableHeader>
-              <TableRow>
-                <TableHead>Product</TableHead>
-                <TableHead>Buyer</TableHead>
-                <TableHead>Price</TableHead>
-                <TableHead>Status</TableHead>
-                <TableHead>Actions</TableHead>
-              </TableRow>
-            </TableHeader>
+                      <TableCell>{order.buyerInfo.userName}</TableCell>
 
-            <TableBody>
-              {orders.map((order) => (
-                <TableRow key={order._id}>
-                  <TableCell>{order.productName}</TableCell>
+                      <TableCell>৳{order.price.toLocaleString()}</TableCell>
 
-                  <TableCell>
-                    {order.buyerInfo.userName}
-                  </TableCell>
+                      <TableCell>
+                        <Badge>{order.orderStatus}</Badge>
+                      </TableCell>
 
-                  <TableCell>
-                    ৳{order.price.toLocaleString()}
-                  </TableCell>
-
-                  <TableCell>
-                    <Badge>
-                      {order.orderStatus}
-                    </Badge>
-                  </TableCell>
-
-                  <TableCell className="space-x-2">
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      className="rounded-full border-[#3E5F47]/30 bg-[#ECEAE5] text-[#3E5F47]"
-                      onClick={() => handleView(order)}
-                    >
-                      View
-                    </Button>
-
-                    {order.orderStatus === "processing" && (
-                      <>
+                      <TableCell className="space-x-2">
                         <Button
                           size="sm"
-                          className="rounded-full bg-[#3E5F47] hover:bg-[#304B38]"
-                          onClick={() =>
-                            handleStatusUpdate(order._id, "delivered")
-                          }
+                          variant="outline"
+                          className="rounded-full border-[#3E5F47]/30 bg-[#ECEAE5] text-[#3E5F47]"
+                          onClick={() => handleView(order)}
                         >
-                          Delivered
+                          View
                         </Button>
 
-                        <Button
-                          size="sm"
-                          variant="destructive"
-                          onClick={() =>
-                            handleStatusUpdate(order._id, "cancelled")
-                          }
-                        >
-                          Cancel
-                        </Button>
-                      </>
-                    )}
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
+                        {order.orderStatus === "processing" && (
+                          <>
+                            <Button
+                              size="sm"
+                              className="rounded-full bg-[#3E5F47] hover:bg-[#304B38]"
+                              onClick={() =>
+                                handleStatusUpdate(order._id, "delivered")
+                              }
+                            >
+                              Delivered
+                            </Button>
 
-          </Table>
+                            <Button
+                              size="sm"
+                              variant="destructive"
+                              onClick={() =>
+                                handleStatusUpdate(order._id, "cancelled")
+                              }
+                            >
+                              Cancel
+                            </Button>
+                          </>
+                        )}
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </CardContent>
+          </Card>
 
-        </CardContent>
-      </Card>
-
-      <div className="md:hidden space-y-3">
-        {orders.map((order) => (
-          <MobileOrderCard
-            key={order._id}
-            order={order}
-            onView={handleView}
-            onStatusUpdate={handleStatusUpdate}
-          />
-        ))}
-      </div>
-      </>
+          <div className="md:hidden space-y-3">
+            {orders.map((order) => (
+              <MobileOrderCard
+                key={order._id}
+                order={order}
+                onView={handleView}
+                onStatusUpdate={handleStatusUpdate}
+              />
+            ))}
+          </div>
+        </>
       )}
 
       {/* Modal */}
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent>
-
           <DialogHeader>
-            <DialogTitle>
-              Order Details
-            </DialogTitle>
+            <DialogTitle>Order Details</DialogTitle>
           </DialogHeader>
 
           {selectedOrder && (
             <div className="space-y-4">
-
               <div>
                 <p className="font-semibold">Product</p>
                 <p>{selectedOrder.productName}</p>
@@ -268,17 +244,12 @@ export default function SellerOrders({ orders, res }) {
 
               <div>
                 <p className="font-semibold">Date</p>
-                <p>
-                  {new Date(selectedOrder.createdAt).toLocaleString()}
-                </p>
+                <p>{new Date(selectedOrder.createdAt).toLocaleString()}</p>
               </div>
-
             </div>
           )}
-
         </DialogContent>
       </Dialog>
-
     </div>
   );
 }

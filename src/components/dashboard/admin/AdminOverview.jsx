@@ -8,15 +8,11 @@ import {
   ShoppingCart,
   DollarSign,
   TrendingUp,
-  AlertTriangle,
   ArrowRight,
-  ShieldCheck,
-  CheckCircle,
-  XCircle,
+  
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { FadeUp, StaggerContainer, StaggerItem } from "@/components/shared/AnimatedDiv";
 
 export default function AdminOverview({ dashboardData }) {
@@ -24,84 +20,89 @@ export default function AdminOverview({ dashboardData }) {
 
 
   // Mock statistical data
-  const stats = [
-    {
-      title: "Total Users",
-      value: totalUser,
-      change: "+12.5% this month",
-      icon: Users,
-      color: "text-blue-600",
-      bg: "bg-blue-50 dark:bg-blue-950/30",
-    },
-    {
-      title: "Total Products",
-      value: totalProduct,
-      change: "+8.2% this month",
-      icon: Package,
-      color: "text-amber-600",
-      bg: "bg-amber-50 dark:bg-amber-950/30",
-    },
-    {
-      title: "Total Orders",
-      value: totalOrder,
-      change: "+21.3% this month",
-      icon: ShoppingCart,
-      color: "text-emerald-600",
-      bg: "bg-emerald-50 dark:bg-emerald-950/30",
-    },
-    {
-      title: "Platform Revenue",
-      value: totalRevenue,
-      change: "+14.8% this month",
-      icon: DollarSign,
-      color: "text-green-600",
-      bg: "bg-green-50 dark:bg-green-950/30",
-    },
-  ];
+const stats = [
+  {
+    title: "Active Members",
+    value: totalUser,
+    change: "+15.7% this month",
+    icon: Users,
+    color: "text-blue-600",
+    bg: "bg-blue-50 dark:bg-blue-950/30",
+  },
+  {
+    title: "Listed Items",
+    value: totalProduct,
+    change: "+10.4% this month",
+    icon: Package,
+    color: "text-amber-600",
+    bg: "bg-amber-50 dark:bg-amber-950/30",
+  },
+  {
+    title: "Completed Sales",
+    value: totalOrder,
+    change: "+18.9% this month",
+    icon: ShoppingCart,
+    color: "text-emerald-600",
+    bg: "bg-emerald-50 dark:bg-emerald-950/30",
+  },
+  {
+    title: "Total Earnings",
+    value: totalRevenue,
+    change: "+16.2% this month",
+    icon: DollarSign,
+    color: "text-green-600",
+    bg: "bg-green-50 dark:bg-green-950/30",
+  },
+];
 
-  // Mock recent actions / logs
-  const [recentActivities, setRecentActivities] = useState([
-    {
-      id: 1,
-      type: "user",
-      message: "New seller account 'EcoGrow' registered.",
-      time: "10 minutes ago",
-      badge: "New User",
-      badgeColor: "bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-300",
-    },
-    {
-      id: 2,
-      type: "product",
-      message: "Product 'Organic Cotton T-Shirt' flagged as reported by user #289.",
-      time: "45 minutes ago",
-      badge: "Reported",
-      badgeColor: "bg-red-100 text-red-800 dark:bg-red-900/50 dark:text-red-300",
-    },
-    {
-      id: 3,
-      type: "order",
-      message: "Dispute raised for Order #8491: Item not received.",
-      time: "2 hours ago",
-      badge: "Dispute",
-      badgeColor: "bg-amber-100 text-amber-800 dark:bg-amber-900/50 dark:text-amber-300",
-    },
-    {
-      id: 4,
-      type: "product",
-      message: "New product 'Handmade Ceramic Mug' submitted for approval.",
-      time: "3 hours ago",
-      badge: "Pending Approval",
-      badgeColor: "bg-purple-100 text-purple-800 dark:bg-purple-900/50 dark:text-purple-300",
-    },
-    {
-      id: 5,
-      type: "user",
-      message: "User 'johndoe@example.com' blocked due to policy violations.",
-      time: "5 hours ago",
-      badge: "Action Taken",
-      badgeColor: "bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300",
-    },
-  ]);
+// Mock recent actions / logs
+const [recentActivities, setRecentActivities] = useState([
+  {
+    id: 1,
+    type: "user",
+    message: "New member 'GreenMarket' successfully joined the marketplace.",
+    time: "8 minutes ago",
+    badge: "New Member",
+    badgeColor:
+      "bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-300",
+  },
+  {
+    id: 2,
+    type: "product",
+    message: "Listing 'Vintage Wooden Desk' was reported for review.",
+    time: "32 minutes ago",
+    badge: "Review Needed",
+    badgeColor:
+      "bg-red-100 text-red-800 dark:bg-red-900/50 dark:text-red-300",
+  },
+  {
+    id: 3,
+    type: "order",
+    message: "Customer requested assistance with Order #5736.",
+    time: "1 hour ago",
+    badge: "Support",
+    badgeColor:
+      "bg-amber-100 text-amber-800 dark:bg-amber-900/50 dark:text-amber-300",
+  },
+  {
+    id: 4,
+    type: "product",
+    message: "Listing 'Reusable Glass Bottle Set' is waiting for approval.",
+    time: "2 hours ago",
+    badge: "Awaiting Review",
+    badgeColor:
+      "bg-purple-100 text-purple-800 dark:bg-purple-900/50 dark:text-purple-300",
+  },
+  {
+    id: 5,
+    type: "user",
+    message: "Member 'sarah.market' received a temporary account restriction.",
+    time: "4 hours ago",
+    badge: "Restricted",
+    badgeColor:
+      "bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300",
+  },
+]);
 
   return (
     <div className="space-y-8">
@@ -201,48 +202,7 @@ export default function AdminOverview({ dashboardData }) {
         </div>
       </FadeUp>
 
-      {/* Recent Alerts & Log */}
-      {/* <FadeUp delay={0.15}>
-        <div className="rounded-2xl border bg-card text-card-foreground shadow-sm">
-          <div className="flex items-center justify-between px-6 py-5 border-b">
-            <div className="flex items-center gap-3">
-              <div className="p-2 rounded-xl bg-orange-50 dark:bg-orange-950/20">
-                <AlertTriangle className="w-5 h-5 text-orange-600" />
-              </div>
-              <div>
-                <h3 className="font-semibold text-base leading-none">System Activities & Moderation Alerts</h3>
-                <p className="text-xs text-muted-foreground mt-1">Real-time alerts requiring administrator review</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="divide-y">
-            {recentActivities.map((act) => (
-              <div
-                key={act.id}
-                className="flex flex-col sm:flex-row sm:items-center justify-between px-6 py-4 gap-3 hover:bg-muted/30 transition-colors"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="mt-0.5">
-                    {act.type === "user" && <Users className="h-4.5 w-4.5 text-blue-600" />}
-                    {act.type === "product" && <Package className="h-4.5 w-4.5 text-amber-600" />}
-                    {act.type === "order" && <ShoppingCart className="h-4.5 w-4.5 text-emerald-600" />}
-                  </div>
-                  <div>
-                    <p className="text-sm font-medium">{act.message}</p>
-                    <p className="text-xs text-muted-foreground mt-0.5">{act.time}</p>
-                  </div>
-                </div>
-                <div>
-                  <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold ${act.badgeColor}`}>
-                    {act.badge}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </FadeUp> */}
+     
     </div>
   );
 }

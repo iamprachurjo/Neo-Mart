@@ -15,11 +15,11 @@ import {
 
 // ---- Mock data — swap with real data from your API later ----
 const MOCK_TOP_PRODUCTS = [
-  { name: "iPhone 13 Pro Max", unitsSold: 142, revenue: 92300 },
-  { name: "Sony WH-1000XM4", unitsSold: 118, revenue: 35400 },
-  { name: "Nike Air Max 90", unitsSold: 97, revenue: 14550 },
-  { name: "Dell XPS 13", unitsSold: 64, revenue: 70400 },
-  { name: "Kindle Paperwhite", unitsSold: 53, revenue: 6890 },
+  { name: "Vintage Wooden Chair", unitsSold: 126, revenue: 37800 },
+  { name: "Samsung Galaxy S22", unitsSold: 104, revenue: 62400 },
+  { name: "Leather Backpack", unitsSold: 89, revenue: 17800 },
+  { name: "Canon EOS Camera", unitsSold: 71, revenue: 56800 },
+  { name: "Ceramic Dinner Set", unitsSold: 58, revenue: 11600 },
 ];
 
 const BAR_COLORS = [

@@ -1,10 +1,10 @@
 import { FadeUp, StaggerContainer, StaggerItem } from "@/components/shared/AnimatedDiv";
 
 const stats = [
-  { value: "124,820", label: "TOTAL PRODUCTS" },
-  { value: "48,310", label: "VERIFIED SELLERS" },
-  { value: "212,540", label: "ACTIVE BUYERS" },
-  { value: "1.2M", label: "COMPLETED ORDERS" },
+  { value: "122,820", label: "TOTAL PRODUCTS" },
+  { value: "48,510", label: "VERIFIED SELLERS" },
+  { value: "212,640", label: "ACTIVE BUYERS" },
+  { value: "1.1M", label: "COMPLETED ORDERS" },
 ];
 
 export default function MarketplaceStats() {
@@ -13,9 +13,11 @@ export default function MarketplaceStats() {
       <div className="container mx-auto px-4">
         <FadeUp>
           <div className="max-w-xl">
-            <h2 className="section-title text-[#161616]">Marketplace Statistics</h2>
-            <p className="mt-4 section-subtitle">A snapshot of community activity this quarter.</p>
-          </div>
+  <h2 className="section-title text-[#161616]">Our Community Impact</h2>
+  <p className="mt-4 section-subtitle">
+    See how our growing community is making a difference through sustainable choices.
+  </p>
+</div>
         </FadeUp>
 
         <StaggerContainer>

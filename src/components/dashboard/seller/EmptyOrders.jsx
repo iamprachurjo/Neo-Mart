@@ -12,10 +12,10 @@ export default function EmptyOrders() {
 
         <h2 className="text-2xl font-bold">No Orders Yet</h2>
 
-        <p className="mt-3 text-muted-foreground">
-          You haven't received any customer orders yet. Keep your products
-          available and customers will see them here once they place an order.
-        </p>
+       <p className="mt-3 text-muted-foreground">
+  No orders have been placed yet. Once customers purchase your products,
+  their orders will appear here for you to manage.
+</p>
 
         <Button
           asChild

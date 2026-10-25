@@ -5,16 +5,16 @@ import {
   Search,
   UserX,
   UserCheck,
-  Trash2,
+ 
   Shield,
   User,
   ShoppingBag,
   MoreVertical,
-  Plus,
+ 
   AlertTriangle,
   X,
 } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -32,14 +32,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
+
 import { FadeUp } from "@/components/shared/AnimatedDiv";
 import { toast } from "react-hot-toast";
 import { deleteUser, updateRole, userStatusUpdate } from "@/lib/actions/users";
@@ -48,7 +41,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 
 export default function ManageUsers({ users }) {
-  // const [users, setUsers] = useState(userData);
+ 
   const [searchTerm, setSearchTerm] = useState("");
   const [roleFilter, setRoleFilter] = useState("all");
   const [statusFilter, setStatusFilter] = useState("all");

@@ -13,13 +13,13 @@ import {
 
 // ---- Mock data — swap with real data from your API later ----
 const MOCK_SALES_DATA = [
-  { day: "Mon", sales: 1200 },
-  { day: "Tue", sales: 1850 },
-  { day: "Wed", sales: 1400 },
-  { day: "Thu", sales: 2100 },
-  { day: "Fri", sales: 2600 },
-  { day: "Sat", sales: 3200 },
-  { day: "Sun", sales: 2300 },
+  { day: "Mon", sales: 1600 },
+  { day: "Tue", sales: 1650 },
+  { day: "Wed", sales: 1500 },
+  { day: "Thu", sales: 2300 },
+  { day: "Fri", sales: 2100 },
+  { day: "Sat", sales: 3300 },
+  { day: "Sun", sales: 2500 },
 ];
 
 function CustomTooltip({ active, payload, label }) {

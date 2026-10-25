@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "last-exam",
+=======
+  "name": "copy-client",
+>>>>>>> 2ddff8cfda7a60f68748f1ac4d3747340abacc23
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,6 +13,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@better-auth/mongo-adapter": "^1.6.18",
     "@stripe/stripe-js": "^9.8.0",
     "better-auth": "^1.6.18",
@@ -36,6 +41,17 @@
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
     "eslint-config-next": "16.2.9",
+=======
+    "better-auth": "^1.7.2",
+    "next": "16.3.3",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.3",
+>>>>>>> 2ddff8cfda7a60f68748f1ac4d3747340abacc23
     "tailwindcss": "^4"
   }
 }

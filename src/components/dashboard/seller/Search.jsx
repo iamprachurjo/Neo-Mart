@@ -20,7 +20,9 @@ const SearchSellerProduct = () => {
   const searchParams = useSearchParams();
 
   const [search, setSearch] = useState(searchParams.get("search") || "");
-  const [category, setCategory] = useState(searchParams.get("category") || "all");
+  const [category, setCategory] = useState(
+    searchParams.get("category") || "all",
+  );
   const [status, setStatus] = useState(searchParams.get("status") || "all");
 
   const hasActiveFilters =
@@ -44,7 +46,7 @@ const SearchSellerProduct = () => {
 
       router.push(`${pathname}?${params.toString()}`);
     },
-    [pathname, router, searchParams]
+    [pathname, router, searchParams],
   );
 
   // Debounce the search input only
@@ -132,14 +134,13 @@ const SearchSellerProduct = () => {
                 <SelectItem value="Furniture">Furniture</SelectItem>
                 <SelectItem value="Sports">Sports</SelectItem>
                 <SelectItem value="Fashion">Fashion</SelectItem>
-                <SelectItem value="Musical Instruments">Musical Instruments</SelectItem>
+                <SelectItem value="Musical Instruments">
+                  Musical Instruments
+                </SelectItem>
                 <SelectItem value="Home Appliances"></SelectItem>
               </SelectContent>
             </Select>
           </div>
-
-
-
 
           <div className="flex flex-col gap-1.5">
             <label className="text-xs font-medium text-muted-foreground">

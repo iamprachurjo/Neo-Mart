@@ -1,19 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
+import { Search, CheckCircle, Truck, XCircle, Clock, Eye } from "lucide-react";
 import {
-  Search,
-  AlertOctagon,
-  CheckCircle,
-  Truck,
-  PackageCheck,
-  XCircle,
-  MoreVertical,
-  Clock,
-  Eye,
-  CreditCard,
-} from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+  Card,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -25,17 +16,10 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
@@ -43,9 +27,8 @@ import { FadeUp } from "@/components/shared/AnimatedDiv";
 import { toast } from "react-hot-toast";
 import { updateOrderStatusByAdmin } from "@/lib/actions/orders";
 
-
 export default function ManageOrders({ orderData: orders }) {
-  console.log('orders', orders);
+  console.log("orders", orders);
 
   const [searchTerm, setSearchTerm] = useState("");
   const [statusFilter, setStatusFilter] = useState("all");
@@ -56,7 +39,6 @@ export default function ManageOrders({ orderData: orders }) {
   const [detailsOpen, setDetailsOpen] = useState(false);
 
   // Filters logic
-
 
   const filteredOrders = orders?.filter((ord) => {
     const matchesSearch =
@@ -73,22 +55,18 @@ export default function ManageOrders({ orderData: orders }) {
   // Action: Update Order Status
   const handleUpdateStatus = async (id, newStatus) => {
     console.log(id, newStatus);
-    
+
     const data = {
       id,
-      data: newStatus
-    }
-    const res = await updateOrderStatusByAdmin(data)
+      data: newStatus,
+    };
+    const res = await updateOrderStatusByAdmin(data);
 
     if (res.modifiedCount > 0) {
       toast.success(`Order marked as ${newStatus}`);
     }
     setDetailsOpen(false);
-
-
   };
-
-
 
   // Status badges mapping
   const getStatusBadge = (status) => {
@@ -139,7 +117,8 @@ export default function ManageOrders({ orderData: orders }) {
         <div>
           <h1 className="text-3xl font-bold tracking-tight">Manage Orders</h1>
           <p className="mt-1 text-muted-foreground">
-            Track customer deliveries, update order fulfillment status, and resolve marketplace disputes.
+            Track customer deliveries, update order fulfillment status, and
+            resolve marketplace disputes.
           </p>
         </div>
       </FadeUp>
@@ -160,7 +139,9 @@ export default function ManageOrders({ orderData: orders }) {
 
             <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto">
               <div className="flex items-center gap-2">
-                <span className="text-xs text-muted-foreground font-medium">Status:</span>
+                <span className="text-xs text-muted-foreground font-medium">
+                  Status:
+                </span>
                 <select
                   value={statusFilter}
                   onChange={(e) => setStatusFilter(e.target.value)}
@@ -176,7 +157,9 @@ export default function ManageOrders({ orderData: orders }) {
               </div>
 
               <div className="flex items-center gap-2">
-                <span className="text-xs text-muted-foreground font-medium">Disputes:</span>
+                <span className="text-xs text-muted-foreground font-medium">
+                  Disputes:
+                </span>
                 <select
                   value={disputedFilter}
                   onChange={(e) => setDisputedFilter(e.target.value)}
@@ -226,13 +209,9 @@ export default function ManageOrders({ orderData: orders }) {
 
                     <TableCell>{ord.productName}</TableCell>
 
-                    <TableCell>
-                      ৳{ord.price.toLocaleString()}
-                    </TableCell>
+                    <TableCell>৳{ord.price.toLocaleString()}</TableCell>
 
-                    <TableCell>
-                      {getStatusBadge(ord.orderStatus)}
-                    </TableCell>
+                    <TableCell>{getStatusBadge(ord.orderStatus)}</TableCell>
 
                     <TableCell className="">
                       <Button
@@ -268,75 +247,50 @@ export default function ManageOrders({ orderData: orders }) {
           </DialogHeader>
           {selectedOrder && (
             <div className="space-y-4">
-
               <div>
-                <p className="text-sm text-muted-foreground">
-                  Buyer Name
-                </p>
+                <p className="text-sm text-muted-foreground">Buyer Name</p>
                 <p className="font-medium">
                   {selectedOrder.buyerInfo.userName}
                 </p>
               </div>
 
               <div>
-                <p className="text-sm text-muted-foreground">
-                  Buyer Email
-                </p>
-                <p>
-                  {selectedOrder.buyerInfo.customerEmail}
-                </p>
+                <p className="text-sm text-muted-foreground">Buyer Email</p>
+                <p>{selectedOrder.buyerInfo.customerEmail}</p>
               </div>
 
               <div>
-                <p className="text-sm text-muted-foreground">
-                  Product
-                </p>
-                <p>
-                  {selectedOrder.productName}
-                </p>
+                <p className="text-sm text-muted-foreground">Product</p>
+                <p>{selectedOrder.productName}</p>
               </div>
 
               <div>
-                <p className="text-sm text-muted-foreground">
-                  Price
-                </p>
+                <p className="text-sm text-muted-foreground">Price</p>
                 <p className="font-semibold">
                   ৳{selectedOrder.price.toLocaleString()}
                 </p>
               </div>
 
               <div>
-                <p className="text-sm text-muted-foreground">
-                  Payment Status
-                </p>
-                <Badge>
-                  {selectedOrder.paymentStatus}
-                </Badge>
+                <p className="text-sm text-muted-foreground">Payment Status</p>
+                <Badge>{selectedOrder.paymentStatus}</Badge>
               </div>
 
               <div>
-                <p className="text-sm text-muted-foreground">
-                  Order Status
-                </p>
+                <p className="text-sm text-muted-foreground">Order Status</p>
                 {getStatusBadge(selectedOrder.orderStatus)}
               </div>
 
               <div>
-                <p className="text-sm text-muted-foreground">
-                  Transaction ID
-                </p>
+                <p className="text-sm text-muted-foreground">Transaction ID</p>
                 <p className="font-mono text-sm break-all">
                   {selectedOrder.transactionId}
                 </p>
               </div>
 
               <div>
-                <p className="text-sm text-muted-foreground">
-                  Date
-                </p>
-                <p>
-                  {new Date(selectedOrder.createdAt).toLocaleString()}
-                </p>
+                <p className="text-sm text-muted-foreground">Date</p>
+                <p>{new Date(selectedOrder.createdAt).toLocaleString()}</p>
               </div>
 
               <div className="flex gap-2 pt-4">
@@ -366,7 +320,6 @@ export default function ManageOrders({ orderData: orders }) {
                   Cancel
                 </Button>
               </div>
-
             </div>
           )}
         </DialogContent>

@@ -11,20 +11,20 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-// ---- Mock data — swap with real data from your API later ----
+
 const MOCK_MONTHLY_DATA = [
-  { month: "Jan", sales: 12000 },
-  { month: "Feb", sales: 15500 },
-  { month: "Mar", sales: 14200 },
-  { month: "Apr", sales: 18900 },
-  { month: "May", sales: 21000 },
-  { month: "Jun", sales: 19800 },
-  { month: "Jul", sales: 24500 },
-  { month: "Aug", sales: 26100 },
-  { month: "Sep", sales: 23400 },
-  { month: "Oct", sales: 27800 },
-  { month: "Nov", sales: 31200 },
-  { month: "Dec", sales: 35600 },
+  { month: "Jan", sales: 9800 },
+  { month: "Feb", sales: 12400 },
+  { month: "Mar", sales: 11600 },
+  { month: "Apr", sales: 15300 },
+  { month: "May", sales: 17900 },
+  { month: "Jun", sales: 16800 },
+  { month: "Jul", sales: 20500 },
+  { month: "Aug", sales: 22800 },
+  { month: "Sep", sales: 21600 },
+  { month: "Oct", sales: 24900 },
+  { month: "Nov", sales: 28700 },
+  { month: "Dec", sales: 32400 },
 ];
 
 function CustomTooltip({ active, payload, label }) {

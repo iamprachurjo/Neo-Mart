@@ -23,40 +23,43 @@ import { FadeUp, StaggerContainer, StaggerItem } from "@/components/shared/Anima
 
 // ---- 1. Mock Data: User Growth ----
 const USER_GROWTH_DATA = [
-  { month: "Jan", buyers: 150, sellers: 40 },
-  { month: "Feb", buyers: 280, sellers: 65 },
-  { month: "Mar", buyers: 420, sellers: 90 },
-  { month: "Apr", buyers: 610, sellers: 120 },
-  { month: "May", buyers: 850, sellers: 160 },
-  { month: "Jun", buyers: 1100, sellers: 210 },
+  { month: "Jan", buyers: 180, sellers: 55 },
+  { month: "Feb", buyers: 320, sellers: 80 },
+  { month: "Mar", buyers: 510, sellers: 115 },
+  { month: "Apr", buyers: 740, sellers: 155 },
+  { month: "May", buyers: 980, sellers: 205 },
+  { month: "Jun", buyers: 1280, sellers: 270 },
 ];
 
 // ---- 2. Mock Data: Category Performance (Volume in thousand Taka) ----
+
 const CATEGORY_PERFORMANCE_DATA = [
-  { name: "Clothing", sales: 245, products: 380 },
-  { name: "Home & Living", sales: 310, products: 450 },
-  { name: "Electronics", sales: 180, products: 120 },
-  { name: "Accessories", sales: 140, products: 290 },
-  { name: "Personal Care", sales: 90, products: 150 },
+  { name: "Furniture", sales: 285, products: 420 },
+  { name: "Fashion", sales: 365, products: 520 },
+  { name: "Gadgets", sales: 225, products: 185 },
+  { name: "Books", sales: 125, products: 340 },
+  { name: "Sports", sales: 175, products: 210 },
 ];
 
 // ---- 3. Mock Data: Monthly Orders ----
+
 const MONTHLY_ORDERS_DATA = [
-  { month: "Jan", orders: 320, volume: 180000 },
-  { month: "Feb", orders: 480, volume: 290000 },
-  { month: "Mar", orders: 540, volume: 350000 },
-  { month: "Apr", orders: 790, volume: 540000 },
-  { month: "May", orders: 980, volume: 720000 },
-  { month: "Jun", orders: 1250, volume: 845900 },
+  { month: "Jan", orders: 290, volume: 165000 },
+  { month: "Feb", orders: 430, volume: 245000 },
+  { month: "Mar", orders: 620, volume: 385000 },
+  { month: "Apr", orders: 810, volume: 575000 },
+  { month: "May", orders: 1060, volume: 785000 },
+  { month: "Jun", orders: 1390, volume: 965000 },
 ];
 
 // ---- 4. Mock Data: Top Categories (Distribution %) ----
+
 const TOP_CATEGORIES_DATA = [
-  { name: "Home & Living", value: 35, color: "#3E5F47" },
-  { name: "Clothing", value: 28, color: "#4d7c5b" },
-  { name: "Electronics", value: 18, color: "#60a5fa" },
-  { name: "Accessories", value: 12, color: "#fbbf24" },
-  { name: "Personal Care", value: 7, color: "#f87171" },
+  { name: "Fashion", value: 32, color: "#3E5F47" },
+  { name: "Furniture", value: 25, color: "#4d7c5b" },
+  { name: "Gadgets", value: 20, color: "#60a5fa" },
+  { name: "Books", value: 13, color: "#fbbf24" },
+  { name: "Sports", value: 10, color: "#f87171" },
 ];
 
 // Custom Tooltip component

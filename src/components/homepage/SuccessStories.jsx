@@ -4,19 +4,22 @@ import { FadeUp, StaggerContainer, StaggerItem } from "@/components/shared/Anima
 
 const stories = [
   {
-    quote: "Found the exact film camera I'd been hunting for two years — half the price and the seller met me in person to walk through every feature.",
+    quote:
+      "I discovered a vintage camera I had been searching for, at an amazing price. The seller was friendly and explained everything before I bought it.",
     name: "Hannah T.",
     role: "Buyer • Boston, MA",
     image: "https://i.pravatar.cc/150?img=32",
   },
   {
-    quote: "Cleared a garage full of furniture in three weekends. The verified-seller badge made conversations easy and buyers showed up serious.",
+    quote:
+      "Selling my unused furniture was quick and simple. The trusted-seller badge helped me connect with genuine buyers who were ready to purchase.",
     name: "Marcus K.",
     role: "Seller • Austin, TX",
     image: "https://i.pravatar.cc/150?img=12",
   },
   {
-    quote: "I furnished my new apartment for under $600 entirely through ReSell Hub. Better quality than anything new at the same price.",
+    quote:
+      "I decorated my entire new apartment for less than $600 using pre-owned items. The quality was much better than what I could find new.",
     name: "Elena S.",
     role: "Buyer • Portland, OR",
     image: "https://i.pravatar.cc/150?img=5",

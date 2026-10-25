@@ -3,9 +3,9 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { FadeUp, StaggerContainer, StaggerItem } from "@/components/shared/AnimatedDiv";
 
 const sellers = [
-  { name: "Elena S.", rating: "4.9", badge: "VERIFIED EXPERT", listings: 24, category: "Electronics", image: "https://i.pravatar.cc/150?img=5" },
-  { name: "Marcus K.", rating: "5.0", badge: "FAST RESPONDER", listings: 12, category: "Furniture", image: "https://i.pravatar.cc/150?img=12" },
-  { name: "Sarah J.", rating: "4.8", badge: "TOP RATED", listings: 56, category: "Home Goods", image: "https://i.pravatar.cc/150?img=32" },
+  { name: "Prachurjo S.", rating: "4.9", badge: "VERIFIED EXPERT", listings: 24, category: "Electronics", image: "https://i.pravatar.cc/150?img=5" },
+  { name: "Sojib K.", rating: "5.0", badge: "FAST RESPONDER", listings: 12, category: "Furniture", image: "https://i.pravatar.cc/150?img=12" },
+  { name: "Sadik J.", rating: "4.8", badge: "TOP RATED", listings: 56, category: "Home Goods", image: "https://i.pravatar.cc/150?img=32" },
 ];
 
 export default function TopRatedSellers() {
